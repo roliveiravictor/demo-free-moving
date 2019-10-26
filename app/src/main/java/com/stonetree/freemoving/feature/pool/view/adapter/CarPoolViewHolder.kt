@@ -14,14 +14,14 @@ class CarPoolViewHolder(
     override fun onBind(data: Car) {
         data.id.apply {
             bind.carId.text = "Driver - ${toString()}"
-            bind.listener = createOnClickListener(this)
+            bind.listener = createOnClickListener(data)
         }
     }
 
-    private fun createOnClickListener(id: Long?): View.OnClickListener? {
-        return id?.let {
+    private fun createOnClickListener(car: Car): View.OnClickListener? {
+        return car?.let {
             return@let View.OnClickListener { view ->
-                val direction = CarPoolDirections.actionLatestToDetails(id)
+                val direction = CarPoolDirections.actionLatestToDetails(car)
                 view.findNavController().navigate(direction)
             }
         }

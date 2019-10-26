@@ -1,8 +1,12 @@
+import com.stonetree.freemoving.feature.journey.view.JourneyViewArgs
+import com.stonetree.freemoving.feature.journey.viewmodel.JourneyViewModel
 import com.stonetree.freemoving.sources.CarPoolDataSource
 import com.stonetree.freemoving.feature.pool.view.adapter.CarPoolAdapter
 import com.stonetree.freemoving.feature.pool.viewmodel.CarPoolViewModel
 import com.stonetree.freemoving.repositories.CarPoolRepository
 import com.stonetree.freemoving.repositories.CarPoolRepositoryImpl
+import com.stonetree.freemoving.repositories.JourneyRepository
+import com.stonetree.freemoving.repositories.JourneyRepositoryImpl
 import com.stonetree.freemoving.sources.factories.CarPoolSourceFactory
 import com.stonetree.restclient.feature.RestClient
 import com.stonetree.restclient.feature.RestClientImpl
@@ -17,6 +21,11 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 
 class Injector {
+
+    private val journey = module {
+        factory<JourneyRepository> { JourneyRepositoryImpl(get()) }
+        viewModel { (args: JourneyViewArgs) -> JourneyViewModel(get(), args) }
+    }
 
     private val pool = module {
         factory { CarPoolAdapter() }

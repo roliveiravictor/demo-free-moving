@@ -32,7 +32,7 @@ class CarPoolViewModel(
             .setFetchExecutor(Executors.newFixedThreadPool(RestclientConstants.MAX_THREADS))
             .build()
 
-    val network: LiveData<NetworkState> = repository.network()
+    val network: LiveData<NetworkState> = repository.get().network()
 
     fun retry() = factory.data.value?.invalidate()
 
