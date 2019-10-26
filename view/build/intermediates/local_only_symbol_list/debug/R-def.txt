@@ -1,9 +1,0 @@
-R_DEF: Internal format may change without notice
-local
-id core_failure_anim_view
-id core_failure_message
-id core_loading_anim_view
-id core_retry_button
-layout view_core
-string retry
-string your_request_failed
