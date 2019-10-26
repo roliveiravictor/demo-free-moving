@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.observe
 import com.stonetree.freemoving.databinding.ViewCarPoolBinding
 import com.stonetree.freemoving.feature.pool.view.adapter.CarPoolAdapter
 import com.stonetree.freemoving.feature.pool.viewmodel.CarPoolViewModel
@@ -43,6 +44,12 @@ class CarPoolView : CoreFragment() {
     }
 
     private fun bindObservers(data: ViewCarPoolBinding, adapter: CarPoolAdapter) {
-        //Do nothing
+        vm.pool.observe(viewLifecycleOwner) { cars ->
+            adapter.submitList(cars)
+        }
+
+        vm.network.observe(viewLifecycleOwner) { network ->
+            data.network = network
+        }
     }
 }

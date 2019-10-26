@@ -23,7 +23,7 @@ class Injector {
         factory { CarPoolDataSource(get()) }
         factory { CarPoolSourceFactory(get()) }
 
-        single { CarPoolRepositoryImpl(get()) }
+        single<CarPoolRepository> { CarPoolRepositoryImpl(get()) }
 
         viewModel { CarPoolViewModel(get(), get()) }
     }

@@ -35,6 +35,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="6dp"
+            app:isIdle="@{network}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
