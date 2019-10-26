@@ -16,4 +16,9 @@ object Constants {
     object Actions {
         const val NAVIGATOR = "com.stonetree.freemoving.NavigatorActivity"
     }
+
+    object Bundle {
+
+        const val DRIVER_ID: String = "driver_id"
+    }
 }

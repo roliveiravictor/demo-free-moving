@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.observe
+import com.stonetree.freemoving.MainFragment
 import com.stonetree.freemoving.databinding.ViewCarPoolBinding
 import com.stonetree.freemoving.feature.pool.view.adapter.CarPoolAdapter
 import com.stonetree.freemoving.feature.pool.viewmodel.CarPoolViewModel
@@ -12,7 +13,7 @@ import com.stonetree.view.feature.fragment.CoreFragment
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CarPoolView : CoreFragment() {
+class CarPoolView : MainFragment() {
 
     private val adapter: CarPoolAdapter by inject()
 

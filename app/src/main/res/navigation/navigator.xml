@@ -2,13 +2,31 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/latest_view">
+    app:startDestination="@id/view_carpool">
 
     <fragment
-        android:id="@+id/latest_view"
+        android:id="@+id/view_carpool"
         android:name="com.stonetree.freemoving.feature.pool.view.CarPoolView"
         android:label="view_latest"
-        tools:layout="@layout/view_car_pool" >
+        tools:layout="@layout/view_car_pool">
+
+        <action
+            android:id="@+id/action_carpool_to_journey"
+            app:destination="@id/view_journey"
+            app:enterAnim="@anim/swipe_left_to_right"
+            app:exitAnim="@anim/swipe_right_to_left" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/view_journey"
+        android:name="com.stonetree.freemoving.feature.journey.view.JourneyView"
+        android:label="view_journey"
+        tools:layout="@layout/view_journey">
+        <argument
+            android:name="driver_id"
+            android:defaultValue="-1L"
+            app:argType="long" />
     </fragment>
 
 </navigation>
