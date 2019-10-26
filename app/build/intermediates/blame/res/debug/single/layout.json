@@ -4,6 +4,10 @@
         "source": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/src/main/res/layout/view_car_pool.xml"
     },
     {
+        "merged": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_pool.xml",
+        "source": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/src/main/res/layout/item_pool.xml"
+    },
+    {
         "merged": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/list_item.xml",
         "source": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/src/main/res/layout/list_item.xml"
     }

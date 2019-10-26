@@ -12,4 +12,6 @@ public class BR {
   public static final int url = 4;
 
   public static final int view = 5;
+
+  public static final int vm = 6;
 }

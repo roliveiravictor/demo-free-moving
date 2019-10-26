@@ -11,7 +11,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.stonetree.freemoving.R;
-import com.stonetree.freemoving.feature.CarPoolView;
+import com.stonetree.freemoving.feature.pool.view.CarPoolView;
+import com.stonetree.freemoving.feature.pool.viewmodel.CarPoolViewModel;
 import com.stonetree.restclient.core.model.NetworkState;
 import com.stonetree.view.databinding.ViewCoreBinding;
 import java.lang.Deprecated;
@@ -26,6 +27,9 @@ public abstract class ViewCarPoolBinding extends ViewDataBinding {
 
   @Bindable
   protected NetworkState mNetwork;
+
+  @Bindable
+  protected CarPoolViewModel mVm;
 
   @Bindable
   protected CarPoolView mView;
@@ -43,6 +47,13 @@ public abstract class ViewCarPoolBinding extends ViewDataBinding {
   @Nullable
   public NetworkState getNetwork() {
     return mNetwork;
+  }
+
+  public abstract void setVm(@Nullable CarPoolViewModel vm);
+
+  @Nullable
+  public CarPoolViewModel getVm() {
+    return mVm;
   }
 
   public abstract void setView(@Nullable CarPoolView view);

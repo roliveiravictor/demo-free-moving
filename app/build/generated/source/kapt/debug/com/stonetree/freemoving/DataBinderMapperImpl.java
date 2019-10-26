@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
-import com.stonetree.freemoving.databinding.ListItemBindingImpl;
+import com.stonetree.freemoving.databinding.ItemPoolBindingImpl;
 import com.stonetree.freemoving.databinding.ViewCarPoolBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
@@ -19,14 +19,14 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataBinderMapperImpl extends DataBinderMapper {
-  private static final int LAYOUT_LISTITEM = 1;
+  private static final int LAYOUT_ITEMPOOL = 1;
 
   private static final int LAYOUT_VIEWCARPOOL = 2;
 
   private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(2);
 
   static {
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.stonetree.freemoving.R.layout.list_item, LAYOUT_LISTITEM);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.stonetree.freemoving.R.layout.item_pool, LAYOUT_ITEMPOOL);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.stonetree.freemoving.R.layout.view_car_pool, LAYOUT_VIEWCARPOOL);
   }
 
@@ -39,11 +39,11 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         throw new RuntimeException("view must have a tag");
       }
       switch(localizedLayoutId) {
-        case  LAYOUT_LISTITEM: {
-          if ("layout/list_item_0".equals(tag)) {
-            return new ListItemBindingImpl(component, view);
+        case  LAYOUT_ITEMPOOL: {
+          if ("layout/item_pool_0".equals(tag)) {
+            return new ItemPoolBindingImpl(component, view);
           }
-          throw new IllegalArgumentException("The tag for list_item is invalid. Received: " + tag);
+          throw new IllegalArgumentException("The tag for item_pool is invalid. Received: " + tag);
         }
         case  LAYOUT_VIEWCARPOOL: {
           if ("layout/view_car_pool_0".equals(tag)) {
@@ -98,7 +98,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerBrLookup {
-    static final SparseArray<String> sKeys = new SparseArray<String>(6);
+    static final SparseArray<String> sKeys = new SparseArray<String>(7);
 
     static {
       sKeys.put(0, "_all");
@@ -107,6 +107,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       sKeys.put(3, "retry");
       sKeys.put(4, "url");
       sKeys.put(5, "view");
+      sKeys.put(6, "vm");
     }
   }
 
@@ -114,7 +115,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
     static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(2);
 
     static {
-      sKeys.put("layout/list_item_0", com.stonetree.freemoving.R.layout.list_item);
+      sKeys.put("layout/item_pool_0", com.stonetree.freemoving.R.layout.item_pool);
       sKeys.put("layout/view_car_pool_0", com.stonetree.freemoving.R.layout.view_car_pool);
     }
   }

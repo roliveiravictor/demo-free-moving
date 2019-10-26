@@ -1261,6 +1261,7 @@ id multiply
 id nav_controller_view_tag
 id nav_host_fragment_container
 id navigation_header_container
+id navigator
 id never
 id none
 id normal
@@ -1444,7 +1445,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
-layout list_item
+layout item_pool
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

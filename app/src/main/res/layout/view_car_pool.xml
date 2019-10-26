@@ -11,8 +11,12 @@
             type="com.stonetree.restclient.core.model.NetworkState" />
 
         <variable
+            name="vm"
+            type="com.stonetree.freemoving.feature.pool.viewmodel.CarPoolViewModel" />
+
+        <variable
             name="view"
-            type="com.stonetree.freemoving.feature.CarPoolView" />
+            type="com.stonetree.freemoving.feature.pool.view.CarPoolView" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,7 +27,7 @@
             android:id="@+id/view_core"
             layout="@layout/view_core"
             app:network="@{network.status.isLoading}"
-            app:retry="@{() -> view.onRequestRetry()}"/>
+            app:retry="@{() -> view.onRequestRetry()}" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/car_pool"
@@ -36,7 +40,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:spanCount="2"
-            tools:listitem="@layout/list_item" />
+            tools:listitem="@layout/item_pool" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -23,6 +23,7 @@ buildscript {
         andx_junit_version = '1.1.1'
         safeargs_version = '1.0.0-alpha11'
         navigation_ui_version = '2.0.0'
+        paging_runtime_version = '2.1.0-rc01'
     }
 
     repositories {

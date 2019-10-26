@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/latest_view"
-        android:name="com.stonetree.freemoving.feature.CarPoolView"
+        android:name="com.stonetree.freemoving.feature.pool.view.CarPoolView"
         android:label="view_latest"
         tools:layout="@layout/view_car_pool" >
     </fragment>

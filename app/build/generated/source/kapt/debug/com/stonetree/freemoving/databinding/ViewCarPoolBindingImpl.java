@@ -49,7 +49,7 @@ public class ViewCarPoolBindingImpl extends ViewCarPoolBinding implements com.st
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x8L;
+                mDirtyFlags = 0x10L;
         }
         viewCore.invalidateAll();
         requestRebind();
@@ -74,8 +74,11 @@ public class ViewCarPoolBindingImpl extends ViewCarPoolBinding implements com.st
         if (BR.network == variableId) {
             setNetwork((com.stonetree.restclient.core.model.NetworkState) variable);
         }
+        else if (BR.vm == variableId) {
+            setVm((com.stonetree.freemoving.feature.pool.viewmodel.CarPoolViewModel) variable);
+        }
         else if (BR.view == variableId) {
-            setView((com.stonetree.freemoving.feature.CarPoolView) variable);
+            setView((com.stonetree.freemoving.feature.pool.view.CarPoolView) variable);
         }
         else {
             variableSet = false;
@@ -91,10 +94,13 @@ public class ViewCarPoolBindingImpl extends ViewCarPoolBinding implements com.st
         notifyPropertyChanged(BR.network);
         super.requestRebind();
     }
-    public void setView(@Nullable com.stonetree.freemoving.feature.CarPoolView View) {
+    public void setVm(@Nullable com.stonetree.freemoving.feature.pool.viewmodel.CarPoolViewModel Vm) {
+        this.mVm = Vm;
+    }
+    public void setView(@Nullable com.stonetree.freemoving.feature.pool.view.CarPoolView View) {
         this.mView = View;
         synchronized(this) {
-            mDirtyFlags |= 0x4L;
+            mDirtyFlags |= 0x8L;
         }
         notifyPropertyChanged(BR.view);
         super.requestRebind();
@@ -132,11 +138,11 @@ public class ViewCarPoolBindingImpl extends ViewCarPoolBinding implements com.st
             mDirtyFlags = 0;
         }
         com.stonetree.restclient.core.model.NetworkState network = mNetwork;
-        com.stonetree.freemoving.feature.CarPoolView view = mView;
+        com.stonetree.freemoving.feature.pool.view.CarPoolView view = mView;
         com.stonetree.restclient.core.model.Status networkStatus = null;
         int networkStatusIsLoading = 0;
 
-        if ((dirtyFlags & 0xaL) != 0) {
+        if ((dirtyFlags & 0x12L) != 0) {
 
 
 
@@ -152,12 +158,12 @@ public class ViewCarPoolBindingImpl extends ViewCarPoolBinding implements com.st
                 }
         }
         // batch finished
-        if ((dirtyFlags & 0xaL) != 0) {
+        if ((dirtyFlags & 0x12L) != 0) {
             // api target 1
 
             this.viewCore.setNetwork(networkStatusIsLoading);
         }
-        if ((dirtyFlags & 0x8L) != 0) {
+        if ((dirtyFlags & 0x10L) != 0) {
             // api target 1
 
             this.viewCore.setRetry(mCallback1);
@@ -169,7 +175,7 @@ public class ViewCarPoolBindingImpl extends ViewCarPoolBinding implements com.st
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         // localize variables for thread safety
         // view
-        com.stonetree.freemoving.feature.CarPoolView view = mView;
+        com.stonetree.freemoving.feature.pool.view.CarPoolView view = mView;
         // view != null
         boolean viewJavaLangObjectNull = false;
 
@@ -187,8 +193,9 @@ public class ViewCarPoolBindingImpl extends ViewCarPoolBinding implements com.st
     /* flag mapping
         flag 0 (0x1L): viewCore
         flag 1 (0x2L): network
-        flag 2 (0x3L): view
-        flag 3 (0x4L): null
+        flag 2 (0x3L): vm
+        flag 3 (0x4L): view
+        flag 4 (0x5L): null
     flag mapping end*/
     //end
 }

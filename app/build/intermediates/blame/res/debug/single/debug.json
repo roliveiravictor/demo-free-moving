@@ -60,12 +60,12 @@
         "source": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/build/intermediates/res/merged/debug/layout_list_item.xml.flat",
-        "source": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/src/main/res/layout/list_item.xml"
-    },
-    {
         "merged": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
         "source": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/build/intermediates/res/merged/debug/layout_item_pool.xml.flat",
+        "source": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/src/main/res/layout/item_pool.xml"
     },
     {
         "merged": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/build/intermediates/res/merged/debug/navigation_navigator.xml.flat",
