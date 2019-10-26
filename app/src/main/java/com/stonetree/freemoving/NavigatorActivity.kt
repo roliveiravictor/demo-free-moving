@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.navigation.findNavController
 import com.stonetree.view.feature.activity.CoreActivity
 
-class NavigatorActivity : CoreActivity() {
+class NavigatorActivity : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

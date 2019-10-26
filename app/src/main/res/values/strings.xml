@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Free Moving</string>
+    <string name="offline_message">You\'re currently offline. Reconnecting...</string>
 </resources>

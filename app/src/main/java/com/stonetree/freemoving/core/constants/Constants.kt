@@ -12,4 +12,8 @@ object Constants {
             const val P2_LON = "p2Lon"
         }
     }
+
+    object Actions {
+        const val NAVIGATOR = "com.stonetree.freemoving.NavigatorActivity"
+    }
 }
