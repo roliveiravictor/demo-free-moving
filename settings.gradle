@@ -1,2 +1,2 @@
 rootProject.name='Free Moving'
-include ':app'
+include ':app', ':restclient'
