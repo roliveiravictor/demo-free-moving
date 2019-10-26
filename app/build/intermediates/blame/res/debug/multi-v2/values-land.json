@@ -4,7 +4,26 @@
             "outputFile": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "/Users/vrocha/.gradle/caches/transforms-2/files-2.1/dadbeb25430cd54fc6a0f915801c7b25/appcompat-1.1.0/res/values-land/values-land.xml",
+                    "source": "/Users/vrocha/.gradle/caches/transforms-2/files-2.1/6149c6a101528c293e12df985c8b1c8d/material-1.0.0/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "10",
+                        "endOffsets": "222"
+                    },
+                    "to": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "264",
+                        "endLines": "8",
+                        "endColumns": "10",
+                        "endOffsets": "431"
+                    }
+                },
+                {
+                    "source": "/Users/vrocha/.gradle/caches/transforms-2/files-2.1/980bfbcfdb7a4ca2e1b1ddb85537b61d/appcompat-1.1.0/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",

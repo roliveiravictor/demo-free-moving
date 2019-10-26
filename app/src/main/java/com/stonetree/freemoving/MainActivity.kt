@@ -1,12 +1,5 @@
 package com.stonetree.freemoving
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import com.stonetree.view.feature.activity.CoreActivity
 
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
-}
+open class MainActivity : CoreActivity()

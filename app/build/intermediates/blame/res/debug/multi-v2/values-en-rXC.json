@@ -4,7 +4,7 @@
             "outputFile": "/Users/vrocha/Documents/Projects/Personal/demo-free-moving/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
-                    "source": "/Users/vrocha/.gradle/caches/transforms-2/files-2.1/2b4182d6b19d401895bae4be0d23473d/core-1.1.0/res/values-en-rXC/values-en-rXC.xml",
+                    "source": "/Users/vrocha/.gradle/caches/transforms-2/files-2.1/640b6ebc7cdf041a68cf276f1233f570/core-1.1.0/res/values-en-rXC/values-en-rXC.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/vrocha/.gradle/caches/transforms-2/files-2.1/dadbeb25430cd54fc6a0f915801c7b25/appcompat-1.1.0/res/values-en-rXC/values-en-rXC.xml",
+                    "source": "/Users/vrocha/.gradle/caches/transforms-2/files-2.1/980bfbcfdb7a4ca2e1b1ddb85537b61d/appcompat-1.1.0/res/values-en-rXC/values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
