@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Free Moving.iml" filepath="$PROJECT_DIR$/Free Moving.iml" group="Free Moving" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Free Moving/app" />
+      <module fileurl="file://$PROJECT_DIR$/restclient/restclient.iml" filepath="$PROJECT_DIR$/restclient/restclient.iml" group="Free Moving/restclient" />
+      <module fileurl="file://$PROJECT_DIR$/view/view.iml" filepath="$PROJECT_DIR$/view/view.iml" group="Free Moving/view" />
     </modules>
   </component>
 </project>
