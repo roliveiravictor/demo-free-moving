@@ -82,6 +82,7 @@ class JourneyView : MainFragment() {
     private fun markOnMap(marks: List<MarkerOptions>) {
         data.map.getMapAsync { map ->
             marks.forEach { mark ->
+                mark.visible(true)
                 map.addMarker(mark)
             }
         }
