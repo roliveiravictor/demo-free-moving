@@ -2,6 +2,13 @@ package com.stonetree.freemoving.core.constants
 
 object Constants {
 
+    object Map {
+
+         object Camera {
+             const val ZOOM_DISTANCE = 16f
+         }
+    }
+
     object Params {
 
         object CarPool {

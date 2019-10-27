@@ -16,7 +16,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/root_details_view"
+        android:id="@+id/root_journey_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -26,12 +26,11 @@
             app:network="@{network.status.isLoading}"
             app:retry="@{() -> view.onRequestRetry()}" />
 
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/map"
+        <fragment
+            android:id="@+id/journey_map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cameraZoom="16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

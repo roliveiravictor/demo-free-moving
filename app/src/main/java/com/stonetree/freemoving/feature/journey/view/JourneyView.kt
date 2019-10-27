@@ -6,14 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.navArgs
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.LatLngBounds
 import com.stonetree.freemoving.MainFragment
 import com.stonetree.freemoving.databinding.ViewJourneyBinding
 import com.stonetree.freemoving.feature.journey.viewmodel.JourneyViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.stonetree.freemoving.R
+import com.stonetree.freemoving.core.constants.Constants.Map.Camera.ZOOM_DISTANCE
 
 class JourneyView : MainFragment() {
 
@@ -21,20 +23,21 @@ class JourneyView : MainFragment() {
 
     private val vm: JourneyViewModel by viewModel { parametersOf(args) }
 
-    private lateinit var data: ViewJourneyBinding
+    private lateinit var map: SupportMapFragment
 
     override fun onCreateView(
         inflater: LayoutInflater,
         viewGroup: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        data = ViewJourneyBinding
+        val data = ViewJourneyBinding
             .inflate(inflater, viewGroup, false)
 
+        bindMap()
         bindXml(data)
         bindObservers(data)
 
-        data.map.onCreate(savedInstanceState)
+        map.onCreate(savedInstanceState)
         markOnMap(arrayListOf(vm.selectedCar()))
 
         return data.root
@@ -46,30 +49,35 @@ class JourneyView : MainFragment() {
 
     override fun onResume() {
         super.onResume()
-        data.map.onResume()
+        map.onResume()
     }
 
     override fun onPause() {
         super.onPause()
-        data.map.onPause()
+        map.onPause()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        data.map.onDestroy()
+        map.onDestroy()
     }
 
     override fun onLowMemory() {
         super.onLowMemory()
-        data.map.onLowMemory()
+        map.onLowMemory()
     }
 
     private fun bindXml(data: ViewJourneyBinding) {
         data.view = this@JourneyView
+    }
 
-        data.map.getMapAsync { map ->
-            val bounds = vm.camera().bounds()
-            map.setLatLngBoundsForCameraTarget(bounds)
+    private fun bindMap() {
+        map = childFragmentManager
+            .findFragmentById(R.id.journey_map) as SupportMapFragment
+
+        map.getMapAsync { map ->
+            val pos = vm.camera().position()
+            map.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, ZOOM_DISTANCE))
         }
     }
 
@@ -80,9 +88,9 @@ class JourneyView : MainFragment() {
     }
 
     private fun markOnMap(marks: List<MarkerOptions>) {
-        data.map.getMapAsync { map ->
+        map.getMapAsync { map ->
             marks.forEach { mark ->
-                map.addMarker(mark).showInfoWindow()
+                map.addMarker(mark)
             }
         }
     }

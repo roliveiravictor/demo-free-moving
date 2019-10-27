@@ -6,10 +6,9 @@ import com.stonetree.freemoving.feature.pool.model.Coordinate
 
 class Camera(private val coordinate: Coordinate) {
 
-    fun bounds(): LatLngBounds {
+    fun position(): LatLng {
         coordinate.apply {
-            val pos = LatLng(latitude, longitude)
-            return LatLngBounds(pos, pos)
+            return LatLng(latitude, longitude)
         }
     }
 }
