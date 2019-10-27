@@ -15,9 +15,6 @@ class JourneyViewModel(
     private val args: JourneyViewArgs
 ) : ViewModel() {
 
-    val latitude: Float = 51.513259F
-    val longitude: Float = -0.129147F
-
     val network: LiveData<NetworkState> = repository.get().network()
 
     fun retry() = repository.get().retry()
