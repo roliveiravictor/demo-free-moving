@@ -6,6 +6,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.stonetree.freemoving.R
 import com.stonetree.freemoving.core.enums.FleetType.*
 import com.stonetree.freemoving.feature.pool.model.Car
+import kotlin.math.abs
 
 fun Car.createMapMark(): MarkerOptions {
     val position = LatLng(
@@ -24,6 +25,17 @@ fun List<MarkerOptions>.notStored(car: Car): Boolean {
             return false
     }
     return true
+}
+
+fun List<MarkerOptions>.safeDistance(car: Car): Boolean {
+    if (isEmpty()) return true
+
+    val dy = abs(car.coordinate.latitude - last().position.latitude) > 0.05
+    val dx = abs(car.coordinate.longitude - last().position.longitude) > 0.05
+    if (dx || dy)
+        return true
+
+    return false
 }
 
 fun String.avatar(): Int {

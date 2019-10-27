@@ -7,6 +7,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.stonetree.freemoving.apis.CarPoolApi
 import com.stonetree.freemoving.core.extensions.createMapMark
 import com.stonetree.freemoving.core.extensions.notStored
+import com.stonetree.freemoving.core.extensions.safeDistance
 import com.stonetree.freemoving.core.model.Camera
 import com.stonetree.freemoving.feature.journey.view.JourneyViewArgs
 import com.stonetree.freemoving.feature.pool.model.CarPool
@@ -47,7 +48,9 @@ class JourneyRepositoryImpl(
                         pool.forEach { car ->
                             /*  Cars should not be stored in memory, but in ROM.       */
                             /*  This is just to prove that similar logic should apply. */
-                            if(notStored(car))
+                            /*  Random positions sent from API shouldn't be so close.  */
+                            /*  Also applying logic to reduce this incidence overflow. */
+                            if (notStored(car) && safeDistance(car))
                                 add(car.createMapMark())
                         }
                         marks.postValue(this)

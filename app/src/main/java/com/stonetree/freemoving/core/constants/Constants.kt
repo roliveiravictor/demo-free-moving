@@ -4,9 +4,9 @@ object Constants {
 
     object Map {
 
-         object Camera {
-             const val ZOOM_DISTANCE = 16f
-         }
+        object Camera {
+            const val ZOOM_DISTANCE = 10f
+        }
     }
 
     object Params {
