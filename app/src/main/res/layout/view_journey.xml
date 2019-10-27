@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.stonetree.imdbnews.feature.latest.view.LatestView">
 
     <data>
-
-        <variable
-            name="url"
-            type="String" />
 
         <variable
             name="network"
@@ -36,9 +31,7 @@
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cameraTargetLat="51.513259"
-            app:cameraTargetLng="-0.129147"
-            app:cameraZoom="6"
+            app:cameraZoom="16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

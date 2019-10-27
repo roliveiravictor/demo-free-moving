@@ -9,3 +9,4 @@ data class Car(
     val fleetType: String,
     val heading: Float
 ) : Serializable
+
