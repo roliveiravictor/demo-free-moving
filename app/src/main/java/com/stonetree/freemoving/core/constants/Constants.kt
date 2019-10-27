@@ -19,6 +19,6 @@ object Constants {
 
     object Bundle {
 
-        const val DRIVER_ID: String = "driver_id"
+        const val CAR: String = "car"
     }
 }

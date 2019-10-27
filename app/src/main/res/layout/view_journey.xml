@@ -31,11 +31,14 @@
             app:network="@{network.status.isLoading}"
             app:retry="@{() -> view.onRequestRetry()}" />
 
-        <androidx.fragment.app.FragmentContainerView
+        <com.google.android.gms.maps.MapView
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:cameraTargetLat="51.513259"
+            app:cameraTargetLng="-0.129147"
+            app:cameraZoom="6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

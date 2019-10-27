@@ -45,6 +45,6 @@ class Injector {
     }
 
     fun startModules(): List<Module> {
-        return arrayListOf(rest, pool)
+        return arrayListOf(rest, pool, journey)
     }
 }

@@ -24,8 +24,8 @@
         android:label="view_journey"
         tools:layout="@layout/view_journey">
         <argument
-            android:name="driver_id"
-            app:argType="string" />
+            android:name="car"
+            app:argType="com.stonetree.freemoving.feature.pool.model.Car" />
     </fragment>
 
 </navigation>

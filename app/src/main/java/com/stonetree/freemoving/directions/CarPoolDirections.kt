@@ -3,7 +3,7 @@ package com.stonetree.freemoving.directions
 import android.os.Bundle
 import androidx.navigation.NavDirections
 import com.stonetree.freemoving.R
-import com.stonetree.freemoving.core.constants.Constants.Bundle.DRIVER_ID
+import com.stonetree.freemoving.core.constants.Constants.Bundle.CAR
 import com.stonetree.freemoving.feature.pool.model.Car
 
 class CarPoolDirections private constructor() {
@@ -13,7 +13,7 @@ class CarPoolDirections private constructor() {
 
         override fun getArguments(): Bundle {
             val result = Bundle()
-            result.putString(DRIVER_ID, car.toString())
+            result.putSerializable(CAR, car)
             return result
         }
     }
