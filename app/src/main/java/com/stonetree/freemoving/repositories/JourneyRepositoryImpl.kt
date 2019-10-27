@@ -45,6 +45,8 @@ class JourneyRepositoryImpl(
                 marks.value?.apply {
                     response.body()?.poiList?.let { pool ->
                         pool.forEach { car ->
+                            /*  Cars should not be stored in memory, but in ROM.       */
+                            /*  This is just to prove that similar logic should apply. */
                             if(notStored(car))
                                 add(car.createMapMark())
                         }
