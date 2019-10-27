@@ -53,6 +53,11 @@ class JourneyRepositoryImpl(
                             if (notStored(car) && safeDistance(car))
                                 add(car.createMapMark())
                         }
+
+                        /*  Also applying logic to reduce memory consumption. */
+                        val threshold = size / 4
+                        for (i in 1..threshold) remove(first())
+
                         marks.postValue(this)
                     }
                 }

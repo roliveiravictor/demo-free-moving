@@ -19,6 +19,7 @@ import com.google.android.gms.maps.GoogleMap.OnCameraMoveStartedListener.REASON_
 import com.google.android.gms.maps.GoogleMap.OnCameraMoveStartedListener.REASON_GESTURE
 import com.stonetree.freemoving.R
 import com.stonetree.freemoving.core.constants.Constants.Map.Camera.ZOOM_DISTANCE
+import com.stonetree.freemoving.core.constants.Constants.Map.MAX_MARKS_REFERENCE
 
 class JourneyView : MainFragment(), OnCameraMoveStartedListener, OnCameraIdleListener {
 
@@ -110,6 +111,9 @@ class JourneyView : MainFragment(), OnCameraMoveStartedListener, OnCameraIdleLis
 
     private fun markOnMap(marks: List<MarkerOptions>) {
         map.getMapAsync { map ->
+            if (marks.size > MAX_MARKS_REFERENCE)
+                map.clear()
+
             marks.forEach { mark ->
                 map.addMarker(mark)
             }
