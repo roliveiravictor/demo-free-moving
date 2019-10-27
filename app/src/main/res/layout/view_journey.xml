@@ -20,12 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <include
-            android:id="@+id/view_core"
-            layout="@layout/view_core"
-            app:network="@{network.status.isLoading}"
-            app:retry="@{() -> view.onRequestRetry()}" />
-
         <fragment
             android:id="@+id/journey_map"
             android:name="com.google.android.gms.maps.SupportMapFragment"

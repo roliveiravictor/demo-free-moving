@@ -13,9 +13,9 @@ interface CarPoolApi {
 
     @GET("/")
     fun get(
-        @Query(P1_LAT) p1Lat: Float = 53.694865F,
-        @Query(P2_LAT) p2Lat: Float = 53.394655F,
-        @Query(P1_LON) p1Lon: Float = 9.757589F,
-        @Query(P2_LON) p2Lon: Float = 10.099891F
+        @Query(P1_LAT) p1Lat: Double = 53.694865,
+        @Query(P2_LAT) p2Lat: Double = 53.394655,
+        @Query(P1_LON) p1Lon: Double = 9.757589,
+        @Query(P2_LON) p2Lon: Double = 10.099891
     ): Call<CarPool>
 }

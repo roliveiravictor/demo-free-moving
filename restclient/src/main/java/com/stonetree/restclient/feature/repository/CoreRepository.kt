@@ -5,7 +5,9 @@ import com.stonetree.restclient.core.model.NetworkState
 
 abstract class CoreRepository : Repository {
 
-    override fun network() = MutableLiveData<NetworkState>()
+    private val network = MutableLiveData<NetworkState>()
+
+    override fun network() = network
 
     override fun retry() {
 

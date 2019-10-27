@@ -1,6 +1,7 @@
 package com.stonetree.freemoving.feature.journey.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,10 +15,13 @@ import org.koin.core.parameter.parametersOf
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap.*
+import com.google.android.gms.maps.GoogleMap.OnCameraMoveStartedListener.REASON_DEVELOPER_ANIMATION
+import com.google.android.gms.maps.GoogleMap.OnCameraMoveStartedListener.REASON_GESTURE
 import com.stonetree.freemoving.R
 import com.stonetree.freemoving.core.constants.Constants.Map.Camera.ZOOM_DISTANCE
 
-class JourneyView : MainFragment() {
+class JourneyView : MainFragment(), OnCameraMoveStartedListener, OnCameraIdleListener {
 
     private val args: JourneyViewArgs by navArgs()
 
@@ -35,7 +39,7 @@ class JourneyView : MainFragment() {
 
         bindMap()
         bindXml(data)
-        bindObservers(data)
+        bindObservers()
 
         map.onCreate(savedInstanceState)
         markOnMap(arrayListOf(vm.selectedCar()))
@@ -76,14 +80,32 @@ class JourneyView : MainFragment() {
             .findFragmentById(R.id.journey_map) as SupportMapFragment
 
         map.getMapAsync { map ->
+            map.setOnCameraMoveStartedListener(this)
+            map.setOnCameraIdleListener(this)
+
             val pos = vm.camera().position()
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, ZOOM_DISTANCE))
         }
     }
 
-    private fun bindObservers(data: ViewJourneyBinding) {
-        vm.network.observe(viewLifecycleOwner) { network ->
-            data.network = network
+    override fun onCameraMoveStarted(p0: Int) {
+        when (p0) {
+            REASON_GESTURE,
+            REASON_DEVELOPER_ANIMATION -> map.getMapAsync { map ->
+                vm.saveLastPosition(map.cameraPosition)
+            }
+        }
+    }
+
+    override fun onCameraIdle() {
+        map.getMapAsync { map ->
+            vm.load(map.cameraPosition)
+        }
+    }
+
+    private fun bindObservers() {
+        vm.marks.observe(viewLifecycleOwner) { marks ->
+            markOnMap(marks)
         }
     }
 

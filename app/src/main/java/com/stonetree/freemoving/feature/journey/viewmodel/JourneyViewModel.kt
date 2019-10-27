@@ -3,6 +3,7 @@ package com.stonetree.freemoving.feature.journey.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.MarkerOptions
 import com.stonetree.freemoving.feature.journey.view.JourneyViewArgs
 import com.stonetree.freemoving.repositories.JourneyRepository
@@ -15,13 +16,17 @@ class JourneyViewModel(
     private val args: JourneyViewArgs
 ) : ViewModel() {
 
-    val network: LiveData<NetworkState> = repository.get().network()
+    val marks: LiveData<MutableList<MarkerOptions>> = repository.marks()
 
     fun retry() = repository.get().retry()
 
     fun camera() = repository.camera(args)
 
     fun selectedCar(): MarkerOptions = repository.selectedCar(args)
+
+    fun saveLastPosition(pos: CameraPosition) = repository.saveLastPosition(pos)
+
+    fun load(cameraPosition: CameraPosition) = repository.load(cameraPosition)
 
     @ExperimentalCoroutinesApi
     override fun onCleared() {
