@@ -35,10 +35,4 @@ class CarPoolViewModel(
     val network: LiveData<NetworkState> = repository.get().network()
 
     fun retry() = factory.data.value?.invalidate()
-
-    @ExperimentalCoroutinesApi
-    override fun onCleared() {
-        super.onCleared()
-        viewModelScope.cancel()
-    }
 }

@@ -1,6 +1,7 @@
 package com.stonetree.freemoving.core.extensions
 
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.stonetree.freemoving.R
 import com.stonetree.freemoving.core.enums.FleetType.*
@@ -15,6 +16,14 @@ fun Car.createMapMark(): MarkerOptions {
     return MarkerOptions()
         .position(position)
         .title(id.toString())
+}
+
+fun List<MarkerOptions>.notStored(car: Car): Boolean {
+    forEach { mark ->
+        if (mark.title == car.id.toString())
+            return false
+    }
+    return true
 }
 
 fun String.avatar(): Int {

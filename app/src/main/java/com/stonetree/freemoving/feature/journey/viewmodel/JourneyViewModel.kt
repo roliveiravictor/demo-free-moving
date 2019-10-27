@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.stonetree.freemoving.feature.journey.view.JourneyViewArgs
 import com.stonetree.freemoving.repositories.JourneyRepository
@@ -27,10 +28,4 @@ class JourneyViewModel(
     fun saveLastPosition(pos: CameraPosition) = repository.saveLastPosition(pos)
 
     fun load(cameraPosition: CameraPosition) = repository.load(cameraPosition)
-
-    @ExperimentalCoroutinesApi
-    override fun onCleared() {
-        super.onCleared()
-        viewModelScope.cancel()
-    }
 }

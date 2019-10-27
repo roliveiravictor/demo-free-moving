@@ -6,6 +6,7 @@ import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.MarkerOptions
 import com.stonetree.freemoving.apis.CarPoolApi
 import com.stonetree.freemoving.core.extensions.createMapMark
+import com.stonetree.freemoving.core.extensions.notStored
 import com.stonetree.freemoving.core.model.Camera
 import com.stonetree.freemoving.feature.journey.view.JourneyViewArgs
 import com.stonetree.freemoving.feature.pool.model.CarPool
@@ -41,11 +42,11 @@ class JourneyRepositoryImpl(
         request = assembleLoadRequest(currentCameraPos)
         request.enqueue(network()) {
             onResponse = { response ->
-                response.body()?.poiList?.let { pool ->
-                    marks.value?.apply {
-                        clear()
+                marks.value?.apply {
+                    response.body()?.poiList?.let { pool ->
                         pool.forEach { car ->
-                            add(car.createMapMark())
+                            if(notStored(car))
+                                add(car.createMapMark())
                         }
                         marks.postValue(this)
                     }

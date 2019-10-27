@@ -2,6 +2,7 @@ package com.stonetree.freemoving.repositories
 
 import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.stonetree.freemoving.core.model.Camera
 import com.stonetree.freemoving.feature.journey.view.JourneyViewArgs
