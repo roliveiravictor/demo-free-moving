@@ -4,7 +4,7 @@ object Constants {
 
     object Map {
 
-        const val MAX_MARKS_REFERENCE = 30
+        const val MAX_MARKS_REFERENCE = 50
 
         object Camera {
             const val ZOOM_DISTANCE = 10f
