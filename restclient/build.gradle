@@ -61,9 +61,10 @@ dependencies {
 
     api "com.airbnb.android:lottie:$lottie_version"
 
-    testImplementation 'junit:junit:4.12'
-    testImplementation "org.mockito:mockito-core:$mockito_core_version"
-    testImplementation "org.mockito:mockito-inline:$mockito_core_version"
+    testApi 'junit:junit:4.12'
+    testApi "org.mockito:mockito-core:$mockito_core_version"
+    testApi "org.mockito:mockito-inline:$mockito_core_version"
+    testApi "androidx.test.espresso:espresso-intents:$espresso_core_version"
 
     testApi "androidx.test:core:$test_core_version"
     testApi "org.koin:koin-test:$koin_test_version"

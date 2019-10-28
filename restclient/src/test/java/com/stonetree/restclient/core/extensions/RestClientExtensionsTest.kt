@@ -20,13 +20,6 @@ import retrofit2.Response
 @RunWith(RobolectricTestRunner::class)
 class RestClientExtensionsTest {
 
-    private lateinit var context: Context
-
-    @Before
-    fun setup() {
-        context = ApplicationProvider.getApplicationContext()
-    }
-
     private class CallTest : Call<String> {
         override fun enqueue(callback: Callback<String>) {
             // Do Nothing
