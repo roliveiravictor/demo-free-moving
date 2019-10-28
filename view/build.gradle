@@ -44,7 +44,10 @@ dependencies {
 
     api "com.airbnb.android:lottie:$lottie_version"
 
-    testImplementation 'junit:junit:4.12'
+    testApi "junit:junit:$junit_version"
+    testApi "org.robolectric:robolectric:$robolectric_version"
+    testApi "androidx.test:core:$test_core_version"
+
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
