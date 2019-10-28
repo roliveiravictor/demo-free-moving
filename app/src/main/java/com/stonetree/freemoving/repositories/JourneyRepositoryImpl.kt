@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.MarkerOptions
 import com.stonetree.freemoving.apis.CarPoolApi
-import com.stonetree.freemoving.core.extensions.createMapMark
-import com.stonetree.freemoving.core.extensions.notStored
-import com.stonetree.freemoving.core.extensions.safeDistance
-import com.stonetree.freemoving.core.model.Camera
+import com.stonetree.freemoving.extensions.createMapMark
+import com.stonetree.freemoving.extensions.notStored
+import com.stonetree.freemoving.extensions.safeDistance
+import com.stonetree.freemoving.models.Camera
 import com.stonetree.freemoving.feature.journey.view.JourneyViewArgs
 import com.stonetree.freemoving.feature.pool.model.CarPool
 import com.stonetree.restclient.core.extensions.enqueue

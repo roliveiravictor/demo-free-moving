@@ -1,10 +1,9 @@
-package com.stonetree.freemoving.core.extensions
+package com.stonetree.freemoving.extensions
 
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.stonetree.freemoving.R
-import com.stonetree.freemoving.core.enums.FleetType.*
+import com.stonetree.freemoving.enums.FleetType.*
 import com.stonetree.freemoving.feature.pool.model.Car
 import kotlin.math.abs
 

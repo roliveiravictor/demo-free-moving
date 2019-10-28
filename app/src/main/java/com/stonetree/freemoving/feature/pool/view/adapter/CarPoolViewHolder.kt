@@ -2,8 +2,8 @@ package com.stonetree.freemoving.feature.pool.view.adapter
 
 import android.view.View
 import androidx.navigation.findNavController
-import com.stonetree.freemoving.core.extensions.avatar
-import com.stonetree.freemoving.core.viewholder.BaseViewHolder
+import com.stonetree.freemoving.extensions.avatar
+import com.stonetree.freemoving.viewholders.BaseViewHolder
 import com.stonetree.freemoving.databinding.ItemPoolBinding
 import com.stonetree.freemoving.directions.CarPoolDirections
 import com.stonetree.freemoving.feature.pool.model.Car

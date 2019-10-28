@@ -3,7 +3,7 @@ package com.stonetree.freemoving
 import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Bundle
-import com.stonetree.freemoving.core.constants.Constants.Actions.NAVIGATOR
+import com.stonetree.freemoving.constants.Constants.Actions.NAVIGATOR
 import com.stonetree.restclient.core.constants.RestclientConstants
 import com.stonetree.restclient.feature.network.NetworkReceiver
 import com.stonetree.view.feature.activity.CoreActivity

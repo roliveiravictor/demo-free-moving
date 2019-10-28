@@ -1,14 +1,11 @@
 package com.stonetree.freemoving.repositories
 
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
 import com.stonetree.freemoving.apis.CarPoolApi
 import com.stonetree.freemoving.feature.pool.model.Car
 import com.stonetree.freemoving.feature.pool.model.CarPool
 import com.stonetree.restclient.core.extensions.enqueue
-import com.stonetree.restclient.core.model.NetworkState
 import com.stonetree.restclient.feature.RestClient
-import com.stonetree.restclient.feature.repository.CoreRepository
 import retrofit2.Call
 
 class CarPoolRepositoryImpl(

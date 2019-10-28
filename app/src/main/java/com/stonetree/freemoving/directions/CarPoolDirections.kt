@@ -3,7 +3,7 @@ package com.stonetree.freemoving.directions
 import android.os.Bundle
 import androidx.navigation.NavDirections
 import com.stonetree.freemoving.R
-import com.stonetree.freemoving.core.constants.Constants.Bundle.CAR
+import com.stonetree.freemoving.constants.Constants.Bundle.CAR
 import com.stonetree.freemoving.feature.pool.model.Car
 
 class CarPoolDirections private constructor() {

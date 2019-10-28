@@ -1,4 +1,4 @@
-package com.stonetree.freemoving.core.viewholder
+package com.stonetree.freemoving.viewholders
 
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView

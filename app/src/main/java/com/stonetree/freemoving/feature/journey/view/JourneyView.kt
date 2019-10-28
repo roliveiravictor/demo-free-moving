@@ -18,8 +18,8 @@ import com.google.android.gms.maps.GoogleMap.*
 import com.google.android.gms.maps.GoogleMap.OnCameraMoveStartedListener.REASON_DEVELOPER_ANIMATION
 import com.google.android.gms.maps.GoogleMap.OnCameraMoveStartedListener.REASON_GESTURE
 import com.stonetree.freemoving.R
-import com.stonetree.freemoving.core.constants.Constants.Map.Camera.ZOOM_DISTANCE
-import com.stonetree.freemoving.core.constants.Constants.Map.MAX_MARKS_REFERENCE
+import com.stonetree.freemoving.constants.Constants.Map.Camera.ZOOM_DISTANCE
+import com.stonetree.freemoving.constants.Constants.Map.MAX_MARKS_REFERENCE
 
 class JourneyView : MainFragment(), OnCameraMoveStartedListener, OnCameraIdleListener {
 

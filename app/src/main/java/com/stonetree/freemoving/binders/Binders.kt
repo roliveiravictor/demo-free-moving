@@ -1,4 +1,4 @@
-package com.stonetree.freemoving.core.binders
+package com.stonetree.freemoving.binders
 
 import android.view.View
 import androidx.databinding.BindingAdapter

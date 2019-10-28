@@ -1,9 +1,9 @@
 package com.stonetree.freemoving.apis
 
-import com.stonetree.freemoving.core.constants.Constants.Params.CarPool.P1_LAT
-import com.stonetree.freemoving.core.constants.Constants.Params.CarPool.P1_LON
-import com.stonetree.freemoving.core.constants.Constants.Params.CarPool.P2_LAT
-import com.stonetree.freemoving.core.constants.Constants.Params.CarPool.P2_LON
+import com.stonetree.freemoving.constants.Constants.Params.CarPool.P1_LAT
+import com.stonetree.freemoving.constants.Constants.Params.CarPool.P1_LON
+import com.stonetree.freemoving.constants.Constants.Params.CarPool.P2_LAT
+import com.stonetree.freemoving.constants.Constants.Params.CarPool.P2_LON
 import com.stonetree.freemoving.feature.pool.model.CarPool
 import retrofit2.Call
 import retrofit2.http.GET

@@ -9,7 +9,6 @@ import com.stonetree.freemoving.MainFragment
 import com.stonetree.freemoving.databinding.ViewCarPoolBinding
 import com.stonetree.freemoving.feature.pool.view.adapter.CarPoolAdapter
 import com.stonetree.freemoving.feature.pool.viewmodel.CarPoolViewModel
-import com.stonetree.view.feature.fragment.CoreFragment
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

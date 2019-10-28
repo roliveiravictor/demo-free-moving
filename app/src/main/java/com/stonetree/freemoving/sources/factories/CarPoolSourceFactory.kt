@@ -3,7 +3,6 @@ package com.stonetree.freemoving.sources.factories
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import com.stonetree.freemoving.feature.pool.model.Car
-import com.stonetree.freemoving.feature.pool.model.CarPool
 import com.stonetree.freemoving.repositories.CarPoolRepository
 import com.stonetree.freemoving.sources.CarPoolDataSource
 

@@ -2,7 +2,6 @@ package com.stonetree.freemoving.feature.pool.view.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.stonetree.freemoving.feature.pool.model.Car
-import com.stonetree.freemoving.feature.pool.model.CarPool
 
 class CarPoolDiffCallback : DiffUtil.ItemCallback<Car>() {
 

@@ -1,4 +1,4 @@
-package com.stonetree.freemoving.core.constants
+package com.stonetree.freemoving.constants
 
 object Constants {
 

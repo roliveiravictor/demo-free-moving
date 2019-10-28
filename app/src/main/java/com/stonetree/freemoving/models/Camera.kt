@@ -1,7 +1,6 @@
-package com.stonetree.freemoving.core.model
+package com.stonetree.freemoving.models
 
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.LatLngBounds
 import com.stonetree.freemoving.feature.pool.model.Coordinate
 
 class Camera(private val coordinate: Coordinate) {

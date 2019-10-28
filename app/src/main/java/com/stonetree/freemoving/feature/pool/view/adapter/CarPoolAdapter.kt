@@ -6,7 +6,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.paging.PagedListAdapter
 import com.stonetree.freemoving.R
 import com.stonetree.freemoving.feature.pool.model.Car
-import com.stonetree.freemoving.feature.pool.model.CarPool
 
 class CarPoolAdapter: PagedListAdapter<Car, CarPoolViewHolder>(
     CarPoolDiffCallback()

@@ -1,4 +1,4 @@
-package com.stonetree.freemoving.core.enums
+package com.stonetree.freemoving.enums
 
 enum class FleetType {
 
