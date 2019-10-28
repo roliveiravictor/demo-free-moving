@@ -1,24 +1,31 @@
 package com.stonetree.restclient.core.extensions
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
-import com.stonetree.restclient.core.constants.RestclientConstants.BASE_URL
-import com.stonetree.restclient.core.constants.RestclientConstants.TEST_PROPS
+import androidx.test.core.app.ApplicationProvider
+import com.stonetree.restclient.core.model.NetworkState
+import com.stonetree.restclient.core.model.Status
 import com.stonetree.restclient.feature.idling.RestClientIdling.getResource
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertFalse
 import okhttp3.Request
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-@RunWith(AndroidJUnit4::class)
-class RestclientExtensionsTest {
+@RunWith(RobolectricTestRunner::class)
+class RestClientExtensionsTest {
 
-    private val context = getInstrumentation().targetContext
+    private lateinit var context: Context
+
+    @Before
+    fun setup() {
+        context = ApplicationProvider.getApplicationContext()
+    }
 
     private class CallTest : Call<String> {
         override fun enqueue(callback: Callback<String>) {
@@ -52,17 +59,19 @@ class RestclientExtensionsTest {
 
     @Test
     fun test_enqueue_shouldIncrementIdling() {
-        CallTest().enqueue(MutableLiveData()) {
-            // Do Nothing
+        val live = MutableLiveData<NetworkState>()
+        CallTest().enqueue(live) {
+            live.value?.apply {
+                assertEquals(status, Status.RUNNING)
+                onResponse = {
+                    assertEquals(status, Status.SUCCESS)
+                }
+
+                onFailure = {
+                    assertEquals(status, Status.FAILED)
+                }
+            }
         }
         assertFalse(getResource().isIdleNow)
-    }
-
-    @Test
-    fun test_read_shouldReturnProperty() {
-        assertEquals(
-            "mUrl",
-            TEST_PROPS.read(context, BASE_URL)
-        )
     }
 }

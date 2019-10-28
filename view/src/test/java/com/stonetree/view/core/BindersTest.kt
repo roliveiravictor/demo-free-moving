@@ -11,7 +11,7 @@ import org.robolectric.RobolectricTestRunner
 @RunWith(RobolectricTestRunner::class)
 class BindersTest {
 
-    private val view = ImageView(ApplicationProvider.getApplicationContext())
+    private val view: ImageView = ImageView(ApplicationProvider.getApplicationContext())
 
     @Test
     fun isLoading_withFailedRequest_shouldReturnGone() {
