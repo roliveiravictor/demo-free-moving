@@ -18,7 +18,7 @@ class CarPoolDirectionsTest {
     @Test
     fun actionPoolToJourney_shouldReturnJourneyId() {
         CarPoolDirections.actionCarPoolToJourney(dummy).run {
-            assertEquals(this, R.id.view_journey)
+            assertEquals(this.actionId, R.id.view_journey)
         }
     }
 }
