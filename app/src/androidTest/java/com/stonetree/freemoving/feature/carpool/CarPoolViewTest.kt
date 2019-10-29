@@ -55,7 +55,7 @@ class CarPoolViewTest {
     @Test
     @Ignore
     /* Mock server */
-    fun test() {
+    fun tag_withValue_shouldReturnVisible() {
         onView(
             allOf(
                 withId(R.id.car_pool),
@@ -65,7 +65,7 @@ class CarPoolViewTest {
     }
 
     @Test
-    fun test_latestSwipe_shouldNotBeEmpty() {
+    fun swipe_shouldNotBeEmpty() {
         onView(withId(R.id.car_pool))
             .perform(swipeUp())
 
@@ -73,7 +73,7 @@ class CarPoolViewTest {
     }
 
     @Test
-    fun test_recyclerView_shouldReturnDefaultValues() {
+    fun recyclerView_shouldReturnDefaultValues() {
         rule.activity.car_pool.apply {
             assertTrue(layoutManager is GridLayoutManager)
             val grid = (layoutManager as GridLayoutManager)
