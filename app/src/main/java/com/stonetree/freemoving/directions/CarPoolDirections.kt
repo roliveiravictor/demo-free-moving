@@ -12,13 +12,13 @@ class CarPoolDirections private constructor() {
         override fun getActionId(): Int = R.id.view_journey
 
         override fun getArguments(): Bundle {
-            val result = Bundle()
-            result.putSerializable(CAR, car)
-            return result
+            return Bundle().apply {
+                putSerializable(CAR, car)
+            }
         }
     }
 
     companion object {
-        fun actionLatestToDetails(car: Car): NavDirections = ActionCarPoolToJourney(car)
+        fun actionCarPoolToJourney(car: Car): NavDirections = ActionCarPoolToJourney(car)
     }
 }

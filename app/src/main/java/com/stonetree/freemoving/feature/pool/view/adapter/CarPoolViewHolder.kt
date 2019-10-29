@@ -23,7 +23,7 @@ class CarPoolViewHolder(
     private fun createOnClickListener(car: Car): View.OnClickListener? {
         return car.let {
             return@let View.OnClickListener { view ->
-                val direction = CarPoolDirections.actionLatestToDetails(car)
+                val direction = CarPoolDirections.actionCarPoolToJourney(car)
                 view.findNavController().navigate(direction)
             }
         }
