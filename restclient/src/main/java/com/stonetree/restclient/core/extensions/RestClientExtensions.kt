@@ -15,7 +15,7 @@ fun <T> Call<T>.enqueue(
     RestClientIdling.getResource().increment()
     network.apply {
         postValue(NetworkState.LOADING)
-        RestClientCallback<T>(network).also { core->
+        RestClientCallback<T>(network).also { core ->
             callback.invoke(core)
             enqueue(core)
         }
