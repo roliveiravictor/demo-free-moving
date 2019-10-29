@@ -18,20 +18,20 @@ import org.mockito.Mockito.*
 import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
-class CarPoolRepositoryTest : AutoCloseKoinTest() {
+class JourneyRepositoryTest : AutoCloseKoinTest() {
 
     private val rest = mock(RestClient::class.java)
 
-    private val repository: CarPoolRepository by inject()
+    private val repository: JourneyRepository by inject()
 
-    private val pool = module {
-        factory<CarPoolRepository> { CarPoolRepositoryImpl(rest) }
+    private val journey = module {
+        factory<JourneyRepository> { JourneyRepositoryImpl(rest) }
     }
 
     @Before
     fun setup() {
         startKoin {
-            loadKoinModules(pool)
+            loadKoinModules(journey)
         }
     }
 

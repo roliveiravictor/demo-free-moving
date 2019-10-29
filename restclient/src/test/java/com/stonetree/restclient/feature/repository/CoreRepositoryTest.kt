@@ -18,14 +18,14 @@ class CoreRepositoryTest: AutoCloseKoinTest() {
 
     private class CoreRepositoryStub : CoreRepository()
 
-    private val journey = module {
+    private val core = module {
         factory<Repository> { CoreRepositoryStub() }
     }
 
     @Before
     fun setup() {
         startKoin {
-            loadKoinModules(journey)
+            loadKoinModules(core)
         }
     }
 
