@@ -1,6 +1,5 @@
 package com.stonetree.freemoving.repositories
 
-import com.stonetree.freemoving.apis.CarPoolApi
 import com.stonetree.restclient.feature.RestClient
 import com.stonetree.restclient.feature.repository.CoreRepository
 import junit.framework.TestCase.assertNotNull
