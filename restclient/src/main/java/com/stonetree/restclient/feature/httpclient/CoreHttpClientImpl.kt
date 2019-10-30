@@ -1,18 +1,16 @@
 package com.stonetree.restclient.feature.httpclient
 
-import com.stonetree.restclient.core.constants.RestclientConstants
+import com.stonetree.restclient.core.constants.RestclientConstants.TIMEOUT
 import com.stonetree.restclient.feature.interceptor.RestClientInterceptor
 import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit
 
-class CoreHttpClientImpl(private val interceptor: RestClientInterceptor) : CoreHttpClient{
+class CoreHttpClientImpl(private val interceptor: RestClientInterceptor) : CoreHttpClient {
 
-    override fun create(): OkHttpClient {
-            return OkHttpClient.Builder()
-            .connectTimeout(RestclientConstants.TIMEOUT, TimeUnit.SECONDS)
-            .readTimeout(RestclientConstants.TIMEOUT, TimeUnit.SECONDS)
-            .writeTimeout(RestclientConstants.TIMEOUT, TimeUnit.SECONDS)
-            .addInterceptor(interceptor.log())
-            .build()
-    }
+    override fun create() = OkHttpClient.Builder()
+        .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
+        .readTimeout(TIMEOUT, TimeUnit.SECONDS)
+        .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
+        .addInterceptor(interceptor.log())
+        .build()
 }

@@ -46,16 +46,20 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     api "org.koin:koin-androidx-viewmodel:$koin_version"
 
     implementation "com.squareup.okhttp3:logging-interceptor:$interceptor_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$converter_gson_version"
+    implementation "com.squareup.okhttp3:mockwebserver:$mock_web_server_version"
+
+    debugImplementation "com.github.donfuxx:Mockinizer:$mocknizer_version"
 
     api "androidx.constraintlayout:constraintlayout:$constraint_version"
-    api "com.squareup.retrofit2:retrofit:$retrofit_version"
-    api "com.squareup.retrofit2:converter-gson:$converter_gson_version"
 
     api "androidx.test.espresso:espresso-idling-resource:$espresso_core_version"
 
