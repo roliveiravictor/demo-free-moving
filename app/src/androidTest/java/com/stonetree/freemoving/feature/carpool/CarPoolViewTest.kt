@@ -5,9 +5,9 @@ import androidx.test.espresso.Espresso
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.intent.rule.IntentsTestRule
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.rule.ActivityTestRule
 import com.appham.mockinizer.RequestFilter
 import com.appham.mockinizer.mockinize
 import com.stonetree.freemoving.NavigatorActivity
@@ -18,9 +18,6 @@ import com.stonetree.restclient.feature.RestClientImpl
 import com.stonetree.restclient.feature.httpclient.CoreHttpClient
 import com.stonetree.restclient.feature.idling.RestClientIdling
 import com.stonetree.restclient.feature.interceptor.RestClientInterceptor
-import com.stonetree.restclient.feature.interceptor.RestClientInterceptorImpl
-import com.stonetree.restclient.feature.network.NetworkChangeReceiverImpl
-import com.stonetree.restclient.feature.network.NetworkReceiver
 import junit.framework.TestCase
 import kotlinx.android.synthetic.main.view_car_pool.*
 import okhttp3.OkHttpClient
@@ -39,19 +36,24 @@ class CarPoolViewTest {
 
     @Rule
     @JvmField
-    val rule = IntentsTestRule(NavigatorActivity::class.java)
-
-    private val rest = module(override = true) {
-        factory<RestClientInterceptor> { RestClientInterceptorImpl() }
-        factory<CoreHttpClient> { HttpClientStub(get()) }
-        single<RestClient> { RestClientImpl() }
-        single<NetworkReceiver> { NetworkChangeReceiverImpl() }
+    val rule = object : ActivityTestRule<NavigatorActivity>(
+        NavigatorActivity::class.java
+    ) {
+        override fun beforeActivityLaunched() {
+            super.beforeActivityLaunched()
+            val rest = module {
+                factory<CoreHttpClient>(override = true) {
+                    HttpClientStub(get()).also { stub ->
+                        single<RestClient>(override = true) { RestClientImpl(stub) }
+                    }
+                }
+            }
+            loadKoinModules(rest)
+        }
     }
 
     @Before
     fun setup() {
-        loadKoinModules(rest)
-
         rule.activity
             .findNavController(R.id.navigator).apply {
                 navigate(R.id.view_carpool)
@@ -71,7 +73,8 @@ class CarPoolViewTest {
 
     @Test
     @Ignore
-            /* Mock server */
+            /* Sorry, but I had to open an issue. https://github.com/InsertKoinIO/koin/issues/629   */
+            /* After that, repository will be turned private again.                                 */
     fun tag_withValue_shouldReturnVisible() {
         Espresso.onView(
             CoreMatchers.allOf(

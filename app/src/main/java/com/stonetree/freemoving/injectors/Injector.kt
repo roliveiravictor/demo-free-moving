@@ -40,7 +40,7 @@ class Injector {
     private val rest = module {
         factory<RestClientInterceptor> { RestClientInterceptorImpl() }
         factory<CoreHttpClient> { CoreHttpClientImpl(get()) }
-        single<RestClient> { RestClientImpl() }
+        single<RestClient> { RestClientImpl(get()) }
         single<NetworkReceiver> { NetworkChangeReceiverImpl() }
     }
 

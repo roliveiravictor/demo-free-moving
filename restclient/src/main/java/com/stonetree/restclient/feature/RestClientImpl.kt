@@ -6,21 +6,20 @@ import com.stonetree.restclient.core.constants.RestclientConstants.BASE_URL
 import com.stonetree.restclient.core.constants.RestclientConstants.API_KEY
 import com.stonetree.restclient.core.constants.RestclientConstants.REPOSITORY_PROPS
 import com.stonetree.restclient.feature.httpclient.CoreHttpClient
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.reflect.KClass
 
-class RestClientImpl : KoinComponent, RestClient {
+class RestClientImpl(httpClient: CoreHttpClient): RestClient {
+
+    private val http: OkHttpClient = httpClient.create()
 
     private lateinit var retrofit: Retrofit
 
     private var baseUrl: String = ""
 
     private var key: String = ""
-
-    private val httpClient: CoreHttpClient by inject()
 
     override fun key(): String = key
 
@@ -38,7 +37,7 @@ class RestClientImpl : KoinComponent, RestClient {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
-            .client(httpClient.create())
+            .client(http)
             .build()
     }
 }
