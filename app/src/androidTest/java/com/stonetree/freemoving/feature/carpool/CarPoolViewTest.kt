@@ -1,6 +1,7 @@
 import android.widget.GridLayout
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions
@@ -29,10 +30,12 @@ import org.junit.*
 import org.junit.runner.RunWith
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
+import org.koin.test.KoinTest
+import org.koin.test.inject
 import java.util.concurrent.TimeUnit
 
 @RunWith(AndroidJUnit4::class)
-class CarPoolViewTest {
+class CarPoolViewTest: KoinTest {
 
     @Rule
     @JvmField
