@@ -24,12 +24,15 @@ buildscript {
         safeargs_version = '1.0.0-alpha11'
         navigation_ui_version = '2.0.0'
         paging_runtime_version = '2.1.0-rc01'
-        fragment_version = '1.2.0-beta02'
+        fragment_version = '1.2.0-rc01'
         robolectric_version = '4.3.1'
         koin_test_version = '2.0.1'
         rules_version = '1.2.0'
         mock_web_server_version = '4.2.2'
-        mocknizer_version = "1.1.0"
+        mocknizer_version = '1.1.0'
+        fragment_testing_version = '1.2.0-rc01'
+        navigation_fragment_ktx_version = '2.2.0-rc01'
+        mockito_version = '3.1.0'
     }
 
     repositories {

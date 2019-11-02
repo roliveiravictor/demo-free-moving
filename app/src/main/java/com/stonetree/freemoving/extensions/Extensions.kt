@@ -1,7 +1,6 @@
 package com.stonetree.freemoving.extensions
 
 import android.content.Context
-import android.util.Log
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.stonetree.freemoving.R

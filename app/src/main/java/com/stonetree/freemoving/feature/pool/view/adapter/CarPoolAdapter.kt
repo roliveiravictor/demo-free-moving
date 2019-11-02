@@ -7,7 +7,7 @@ import androidx.paging.PagedListAdapter
 import com.stonetree.freemoving.R
 import com.stonetree.freemoving.feature.pool.model.Car
 
-class CarPoolAdapter: PagedListAdapter<Car, CarPoolViewHolder>(
+class CarPoolAdapter : PagedListAdapter<Car, CarPoolViewHolder>(
     CarPoolDiffCallback()
 ) {
     override fun onBindViewHolder(holder: CarPoolViewHolder, position: Int) {
