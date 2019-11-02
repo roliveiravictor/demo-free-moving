@@ -1,11 +1,21 @@
 package com.stonetree.freemoving.extensions
 
+import android.content.Context
+import android.util.Log
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.stonetree.freemoving.R
 import com.stonetree.freemoving.enums.FleetType.*
 import com.stonetree.freemoving.feature.pool.model.Car
 import kotlin.math.abs
+
+fun String.readFile(context: Context): String {
+    context.assets.open(this)
+        .bufferedReader()
+        .use { buffer ->
+            return buffer.readText()
+        }
+}
 
 fun Car.createMapMark(): MarkerOptions {
     val position = LatLng(

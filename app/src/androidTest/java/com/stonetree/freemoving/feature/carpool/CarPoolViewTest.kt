@@ -1,41 +1,37 @@
+import android.content.Context
+import android.util.Log
 import android.widget.GridLayout
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.Espresso
+import androidx.test.espresso.Espresso.*
 import androidx.test.espresso.IdlingRegistry
-import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.assertion.ViewAssertions.*
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
-import com.appham.mockinizer.RequestFilter
-import com.appham.mockinizer.mockinize
 import com.stonetree.freemoving.NavigatorActivity
 import com.stonetree.freemoving.R
-import com.stonetree.restclient.core.constants.RestclientConstants.TIMEOUT
+import com.stonetree.freemoving.stubs.HttpClientStub
 import com.stonetree.restclient.feature.RestClient
 import com.stonetree.restclient.feature.RestClientImpl
 import com.stonetree.restclient.feature.httpclient.CoreHttpClient
 import com.stonetree.restclient.feature.idling.RestClientIdling
-import com.stonetree.restclient.feature.interceptor.RestClientInterceptor
-import junit.framework.TestCase
+import junit.framework.TestCase.*
 import kotlinx.android.synthetic.main.view_car_pool.*
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import okhttp3.mockwebserver.MockResponse
-import org.hamcrest.CoreMatchers
-import org.hamcrest.Matchers
+import org.hamcrest.Matchers.*
 import org.junit.*
 import org.junit.runner.RunWith
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
-import org.koin.test.KoinTest
-import org.koin.test.inject
-import java.util.concurrent.TimeUnit
 
 @RunWith(AndroidJUnit4::class)
-class CarPoolViewTest: KoinTest {
+class CarPoolViewTest {
+
+    private val context: Context = ApplicationProvider.getApplicationContext()
 
     @Rule
     @JvmField
@@ -46,21 +42,23 @@ class CarPoolViewTest: KoinTest {
             super.beforeActivityLaunched()
             val rest = module {
                 factory<CoreHttpClient>(override = true) {
-                    HttpClientStub(get()).also { stub ->
-                        single<RestClient>(override = true) { RestClientImpl(stub) }
-                    }
+                    HttpClientStub(
+                        get(),
+                        context
+                    )
                 }
+                single<RestClient>(override = true) { RestClientImpl(get()) }
             }
+
             loadKoinModules(rest)
         }
     }
 
     @Before
     fun setup() {
-        rule.activity
-            .findNavController(R.id.navigator).apply {
-                navigate(R.id.view_carpool)
-            }
+        rule.activity.findNavController(R.id.navigator).apply {
+            navigate(R.id.view_carpool)
+        }
 
         IdlingRegistry
             .getInstance()
@@ -75,59 +73,41 @@ class CarPoolViewTest: KoinTest {
     }
 
     @Test
-    @Ignore
-            /* Sorry, but I had to open an issue. https://github.com/InsertKoinIO/koin/issues/629   */
-            /* After that, repository will be turned private again.                                 */
     fun tag_withValue_shouldReturnVisible() {
-        Espresso.onView(
-            CoreMatchers.allOf(
-                ViewMatchers.withId(R.id.car_pool),
-                ViewMatchers.withTagValue(Matchers.`is`(0))
-            )
-        ).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onData(withId(R.id.car_pool))
+            .inAdapterView(
+                allOf(
+                    withId(R.id.car_pool_row),
+                    withTagValue(
+                        `is`(692026)
+                    )
+                )
+            ).perform(click())
     }
 
     @Test
     fun swipe_shouldNotBeEmpty() {
-        Espresso.onView(ViewMatchers.withId(R.id.car_pool))
-            .perform(ViewActions.swipeUp())
+        onView(withId(R.id.car_pool))
+            .perform(swipeUp())
 
         Assert.assertNotEquals(rule.activity.car_pool.adapter?.itemCount, 0)
     }
 
     @Test
     fun test() {
-        Espresso.onView(ViewMatchers.withId(R.id.car_pool))
-            .perform(ViewActions.swipeUp())
+        onView(withId(R.id.car_pool))
+            .perform(swipeUp())
     }
 
     @Test
     fun recyclerView_shouldReturnDefaultValues() {
         rule.activity.car_pool.apply {
-            TestCase.assertTrue(layoutManager is GridLayoutManager)
+            assertTrue(layoutManager is GridLayoutManager)
             val grid = (layoutManager as GridLayoutManager)
             grid.apply {
-                TestCase.assertTrue(spanCount == 3)
-                TestCase.assertTrue(orientation == GridLayout.VERTICAL)
+                assertTrue(spanCount == 3)
+                assertTrue(orientation == GridLayout.VERTICAL)
             }
         }
-    }
-
-    class HttpClientStub(interceptor: RestClientInterceptor) : CoreHttpClient {
-
-        private val interceptor: HttpLoggingInterceptor = interceptor.log()
-
-        private val mocks: Map<RequestFilter, MockResponse> = mapOf(
-            RequestFilter("/") to MockResponse().apply {
-                setResponseCode(404)
-                setBody("..")
-            }
-        )
-
-        override fun create() = OkHttpClient.Builder()
-            .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
-            .addNetworkInterceptor(interceptor)
-            .mockinize(mocks)
-            .build()
     }
 }

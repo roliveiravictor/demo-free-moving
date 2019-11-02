@@ -5,7 +5,7 @@ import kotlin.reflect.KClass
 
 interface RestClient {
 
-    fun<T : Any> generate(clazz: KClass<T>) : T
+    fun <T : Any> generate(clazz: KClass<T>): T
 
     fun key(): String
 }

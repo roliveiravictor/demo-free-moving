@@ -1,0 +1,31 @@
+{
+  "poiList": [
+    {
+      "id": 692620,
+      "coordinate": {
+        "latitude": 53.67825527980443,
+        "longitude": 9.79705343001877
+      },
+      "fleetType": "POOLING",
+      "heading": 235.21351146543702
+    },
+    {
+      "id": 475302,
+      "coordinate": {
+        "latitude": 53.458630966259996,
+        "longitude": 9.821689725703392
+      },
+      "fleetType": "TAXI",
+      "heading": 309.07002816680324
+    },
+    {
+      "id": 264106,
+      "coordinate": {
+        "latitude": 53.618225153797376,
+        "longitude": 10.036125848786462
+      },
+      "fleetType": "TAXI",
+      "heading": 342.7740145619471
+    }
+  ]
+}
