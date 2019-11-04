@@ -90,7 +90,6 @@
 # Run
 
   -  Clone this repository and open build.gradle with Android Studio
-  -  `./gradlew check` to run static code analysers
   -  `./gradlew test` to run all tests
 
 # Requirements
