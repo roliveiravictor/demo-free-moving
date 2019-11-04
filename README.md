@@ -33,7 +33,7 @@
 
 # Description
 
--   Table Now App
+-   Free Moving App
 
 # IDE
 
@@ -50,7 +50,7 @@
 
 # Objective
 
-  - List restaurants provided by Quandoo's API
+  - List marks on Google Maps
 
 # Overview
 
