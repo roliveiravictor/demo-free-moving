@@ -9,10 +9,11 @@ import com.stonetree.restclient.core.model.NetworkState.Companion.LOADING
 import junit.framework.TestCase.*
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.koin.test.AutoCloseKoinTest
 import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
-class BindersTest {
+class BindersTest: AutoCloseKoinTest() {
 
     private val view: ImageView = ImageView(ApplicationProvider.getApplicationContext())
 
